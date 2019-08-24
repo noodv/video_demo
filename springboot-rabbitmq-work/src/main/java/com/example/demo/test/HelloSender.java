@@ -16,7 +16,7 @@ public class HelloSender
     @RequestMapping("sendmessage")
     public void send()
     {
-        amqpTemplate.convertAndSend("queue","hello,rabbit~");
+        amqpTemplate.convertAndSend("testJD","hello,rabbit~");
     }
 
 }
