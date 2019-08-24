@@ -9,10 +9,11 @@ public class HelloSender
 {
 
     @Autowired
-    private AmqpTemplate template;
+    private AmqpTemplate amqpTemplate;
 
-    public void send() {
-        template.convertAndSend("queue","hello,rabbit~");
+    public void send()
+    {
+        amqpTemplate.convertAndSend("queue","hello,rabbit~");
     }
 
 }

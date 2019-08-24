@@ -10,7 +10,7 @@ public class SenderConf
     @Bean
     public Queue queue()
     {
-        return new Queue("queue");
+        return new Queue("testJD");
     }
 
 }
