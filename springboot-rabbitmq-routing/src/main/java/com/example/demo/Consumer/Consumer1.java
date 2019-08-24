@@ -1,11 +1,14 @@
 package com.example.demo.Consumer;
 
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.core.ExchangeTypes;
+import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = "testJD")
+@RabbitListener(bindings = {@QueueBinding(
+        value = @Queue(value = "routing1"),
+        exchange = @Exchange(value = "luyou", type = ExchangeTypes.FANOUT),
+        key = "news.send")})
 public class Consumer1
 {
 
