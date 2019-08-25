@@ -16,7 +16,13 @@ public class HelloSender
     @RequestMapping("sendmessage")
     public void send()
     {
-        amqpTemplate.convertAndSend("luyou","error.log","RabbitMQ:使用路由模式发送了消息：error.log");
+        amqpTemplate.convertAndSend("luyou","news.routing1","RabbitMQ:使用路由模式发送了消息：error.log");
+    }
+
+    @RequestMapping("sendmessage2")
+    public void send2()
+    {
+        amqpTemplate.convertAndSend("luyou","news.routing2","RabbitMQ:使用路由模式发送了消息：error.log");
     }
 
 }

@@ -6,16 +6,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RabbitListener(bindings = {@QueueBinding(
-        value = @Queue(value = "queue1"),
+        value = @Queue(value = "queue2"),
         exchange = @Exchange(value = "luyou", type = ExchangeTypes.DIRECT),
-        key = "news.routing1")})
-public class Consumer1
+        key = "news.routing2")})
+public class Consumer2
 {
 
     @RabbitHandler
     public void showMessage(String message)
     {
-        System.out.println("Consumer1接收到消息：" + message);
+        System.out.println("Consumer2接收到消息：" + message);
     }
 
 }
