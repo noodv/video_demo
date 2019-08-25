@@ -1,1 +1,16 @@
+zuul:
+  routes:
+    demo:
+      path: /demo/**
+      url: forward:/demo
+    product:
+      path: /product/**
+      stripPrefix: false
 
+product:
+  ribbon:
+    listOfServers: 192.168.99.100:8080
+
+ribbon:
+  eureka:
+    enabled: false
