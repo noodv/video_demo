@@ -16,7 +16,10 @@ public class HelloSender
     @RequestMapping("sendmessage")
     public void send()
     {
-        amqpTemplate.convertAndSend("testJD","hello,rabbit~");
+        amqpTemplate.convertAndSend("spring.topic.exchange", "person.insert", "增加人员");
+        amqpTemplate.convertAndSend("spring.topic.exchange", "person.delete", "删除人员");
+        amqpTemplate.convertAndSend("spring.topic.exchange", "money.insert", "加钱");
+        amqpTemplate.convertAndSend("spring.topic.exchange", "money.delete", "减钱");
     }
 
 }
