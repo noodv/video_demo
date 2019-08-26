@@ -15,25 +15,25 @@ public class ZkDistributedSequence implements DistributedSequence {
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(ZkReentrantLockCleanerTask.class);
 
     private CuratorFramework client;
-     /**
+    /**
      * Curator RetryPolicy maxRetries
      */
-    private int maxRetries=3;
+    private int maxRetries = 3;
     /**
      * Curator RetryPolicy baseSleepTimeMs
      */
-    private final int baseSleepTimeMs=1000;
+    private final int baseSleepTimeMs = 1000;
 
-    public ZkDistributedSequence(String zookeeperAddress){
-        try{
+    public ZkDistributedSequence(String zookeeperAddress) {
+        try {
             RetryPolicy retryPolicy = new ExponentialBackoffRetry(baseSleepTimeMs, maxRetries);
             client = CuratorFrameworkFactory.newClient(zookeeperAddress, retryPolicy);
             client.start();
-        }catch (Exception e){
-            log.error(e.getMessage(),e);
-        }catch (Throwable ex){
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        } catch (Throwable ex) {
             ex.printStackTrace();
-            log.error(ex.getMessage(),ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 
@@ -51,7 +51,7 @@ public class ZkDistributedSequence implements DistributedSequence {
 
     public Long sequence(String sequenceName) {
         try {
-            int value=client.setData().withVersion(-1).forPath("/"+sequenceName,"".getBytes()).getVersion();
+            int value = client.setData().withVersion(-1).forPath("/" + sequenceName, "".getBytes()).getVersion();
             return new Long(value);
         } catch (Exception e) {
             e.printStackTrace();
