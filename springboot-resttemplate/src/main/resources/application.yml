@@ -11,8 +11,7 @@ eureka:
       defaultZone: http://localhost:8081/eureka
     register-with-eureka: true
     fetch-registry: true #是否可检索
-  server:
-    enable-self-preservation: false
   instance:
     instance-id: resttemplate-8082 # 自定义服务实例Id
     prefer-ip-address: true #访问路径可以显示IP地址
+    lease-renewal-interval-in-seconds: 30 # client发送心跳的频率

@@ -13,6 +13,3 @@ eureka:
     register-with-eureka: false #false 表示不向注册中心注册自己
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
-  server:
-    enable-self-preservation: false # 一旦进入保护模式，Eureka Server将会尝试保护其服务注册表中的信息，不再删除服务注册表中的数据（也就是不会注销任何微服务）
-    eviction-interval-timer-in-ms: 60000
