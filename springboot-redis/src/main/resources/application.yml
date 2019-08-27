@@ -1,0 +1,30 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: resttemplate
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+    register-with-eureka: true
+    fetch-registry: true #是否可检索
+  instance:
+    instance-id: resttemplate-8082 # 自定义服务实例Id
+    prefer-ip-address: true #访问路径可以显示IP地址
+    lease-renewal-interval-in-seconds: 30 # client发送心跳的频率
+
+redis:
+  host: 192.168.170.17
+  password: mg@test!~
+  port: 6379
+  timeout: 10000
+  database: 1
+  lettuce:
+    pool:
+      max-active: 50
+      max-wait: -1
+      max-idle: 10
+      min-idle: 0
