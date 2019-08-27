@@ -1,2 +1,5 @@
 /springboot-redis-distributed-lock/logs
 /springboot-redis-distributed-lock/target
+/springcloud-bus/config-server/target
+/springcloud-bus/config-eurekaServer/target
+/springcloud-bus/config-client/target
