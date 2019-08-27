@@ -1,3 +1,5 @@
+import com.sun.xml.internal.ws.wsdl.writer.document.Import
+
 plugins {
     id 'org.springframework.boot' version '2.1.7.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
@@ -12,9 +14,18 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-eureka', version: '1.4.7.RELEASE'
+ext {
+    set('springCloudVersion', "Greenwich.SR2")
+}
 
-    implementation 'org.springframework.boot:spring-boot-starter'
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
 }
