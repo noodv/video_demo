@@ -3,3 +3,8 @@
 /springcloud-bus/config-server/target
 /springcloud-bus/config-eurekaServer/target
 /springcloud-bus/config-client/target
+/springcloud-hystrix/eureka.customer/target
+/springcloud-hystrix/eureka.provider/target
+/springcloud-hystrix/eureka.server/target
+/springcloud-config/config-server/target
+/springcloud-config/config-client/target
