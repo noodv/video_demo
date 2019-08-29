@@ -8,3 +8,5 @@
 /springcloud-hystrix/eureka.server/target
 /springcloud-config/config-server/target
 /springcloud-config/config-client/target
+/springcloud-hystrix/eureka.customer/.idea
+/springcloud-hystrix/eureka.provider/.idea

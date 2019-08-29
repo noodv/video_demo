@@ -12,7 +12,7 @@ public class ConsumerController {
     @Autowired
     private ConsumerService server;
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/test")
     public String add() {
         return server.addService();
     }

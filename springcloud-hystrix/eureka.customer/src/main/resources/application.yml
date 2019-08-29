@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: ribbon-consumer
+
+server:
+  port: 3333
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  eureka:
+    enabled: true
+# 这里面ribbon和hystrix是同时生效的，哪个值小哪个生效，另一个就看不到效果了
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

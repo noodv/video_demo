@@ -11,7 +11,8 @@ public class ConsumerService {
     @Autowired
     RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "addServiceFallback")//如果调用服务失败的话，调用方法addServiceFallback
+    // 闄嶇骇澶勭悊
+    @HystrixCommand(fallbackMethod = "addServiceFallback")
     public String addService() {
         return restTemplate.getForEntity("http://COMPUTE-SERVICE/add?a=10&b=20", String.class).getBody();
     }
